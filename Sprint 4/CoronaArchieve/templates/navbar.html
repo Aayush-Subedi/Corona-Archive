@@ -1,0 +1,79 @@
+<nav class="navbar">
+  <a href="{{ url_for('index') }}" id="title">
+    <h1>C-A</h1>
+  </a>
+  <div class="nav_container topBotomBordersOut">
+    <!-- If no one is logged in -->
+    {% if not session.get('userType') %}
+    <a href="{{ url_for('index') }}" class="navbar-element">
+      <h1>Home</h1>
+    </a>
+    {% endif %} {% if session.get('userType') %} {% if session.get('userType')==
+    'Visitor' %}
+    <a href="{{url_for('scan_qrcode')}}">
+      <h1 style="float: right">Scan</h1>
+    </a>
+    <a href="{{ url_for('logout') }}">
+      <h1 style="float: right">Logout</h1>
+    </a>
+    {% endif %} {% if session.get('userType') == 'Hospital' %}
+    <a href="{{ url_for('dashboard_hospital') }}">
+      <h1 style="float: right">Dashboard</h1>
+    </a>
+    <a href="{{ url_for('hospital_visitor_list') }}">
+      <h1>Search Patient</h1>
+    </a>
+    <a href="{{ url_for('logout') }}">
+      <h1 style="float: right">Logout</h1>
+    </a>
+    {% endif %} {% if session.get('userType') == 'Place' %}
+    <a href="{{ url_for('place_dashboard') }}">
+      <h1 style="float: right">Dashboard</h1>
+    </a>
+    <a href="{{ url_for('logout') }}">
+      <h1 style="float: right">Logout</h1>
+    </a>
+    {% endif %} {% if session.get('userType') == 'Agent' %}
+    <a href="{{ url_for('dashboard_agent') }}">
+      <h1 style="float: right">Dashboard</h1>
+    </a>
+    <a href="{{ url_for('hospital_registration') }}">
+      <h1>Register Hospital</h1>
+    </a>
+    <a href="{{ url_for('agent_list_visitors') }}">
+      <h1>Search Visitor</h1>
+    </a>
+    <a href="{{ url_for('agent_list_places') }}">
+      <h1>Search Place</h1>
+    </a>
+    <a href="{{ url_for('agent_list_visitor_place') }}">
+      <h1>Search Time</h1>
+    </a>
+    <a href="{{ url_for('verify_hospital_registration') }}">
+      <h1>Verify Hospital</h1>
+    </a>
+    <a href="{{ url_for('logout') }}">
+      <h1 style="float: right">Logout</h1>
+    </a>
+    {% endif %} {% else %}
+    <a href="log_visitor" class="navbar-element">
+      <h1>Visitor</h1>
+    </a>
+    <a href="log_place" class="navbar-element">
+      <h1>Place</h1>
+    </a>
+    <a href="agent" class="navbar-element">
+      <h1>Agent</h1>
+    </a>
+    <a href="hospital" class="navbar-element">
+      <h1>Hospital</h1>
+    </a>
+    <a href="imprint" class="navbar-element">
+      <h1>Impressum</h1>
+    </a>
+    {% endif %}
+    <!-- {% if session.get('userType') %}
+        <a href="{{ url_for('logout') }}" class="navbar-link">Logout</a>
+        {% endif %}  -->
+  </div>
+</nav>

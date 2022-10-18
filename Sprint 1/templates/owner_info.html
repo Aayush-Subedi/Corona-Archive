@@ -1,0 +1,57 @@
+
+{%  extends 'base.html' %}
+
+{% block head %}  <!-- For overiding template if need be -->
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/pages.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}"> <!-- Specific format for linking CSS -->
+<title>Citizen Registeration</title>
+
+{% endblock %}
+
+{% block body %}
+    <nav id="navbar">
+        <a class="navbar-brand" href=".{{ url_for('index')}}">CORONA ARCHIVE</a>
+        <div class="navbar-links">
+            <a class="navbar-link" href="{{ url_for('index')}}">HOME</a>
+            <a class="navbar-link" href="{{ url_for('citizen')}}">Citizen Registeration</a>
+            <!-- Agent has access to info about Citizens(In progress) -->
+            <a class="navbar-link" href="{{ url_for('owner')}}">Owner Registeration</a>
+            <!-- Agent has access to info about Owners(In progress) -->
+            <a class="navbar-link"  href="{{ url_for('agent')}}">Agent Login</a>
+            <a class="navbar-link" href="{{ url_for('hospital')}}">Hospital Login</a>
+      </div>
+      </nav>
+</body>
+</html>
+
+{%  extends 'base.html' %}
+
+{% block head %}
+<title>Owner Registeration</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center;">Owner Info</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Contact-Number</th>
+            <th>E-mail</th>
+            <th>Date of Registeration</th>
+        </tr>
+        {% for task in Info %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.address }}</td>
+            <td>{{ task.phone }}</td>
+            <td>{{ task.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
+

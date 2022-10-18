@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+<main class="content">
+  <h1>Welcome {{userName}}!!!</h1>
+  <div class="flashNotification success" style="text-align: center">
+    <h1>Welcome!</h1>
+    <h2>Your user id is: {{session.get('userId')}}</h2>
+    <h2>Your usertype is: {{session.get('userType')}}</h2>
+    <h2>Your user name is: {{session.get('userName')}}</h2>
+  </div>
+
+  <h1>QR Code for your {{session.get('userType')}} named {{session.get('userName')}} is:</h1>
+  <!-- <div>
+           <form method = "POST" action="">
+               <label>Value: </label>
+               <input name="data" type="text"/>
+               <input type="submit" value="Submit">
+           </form>
+       </div> -->
+
+        <img src="data:image/jpeg;base64,{{ image_data }}" alt="image"/>
+        <div class="flashNotification success" style="text-align: center">
+            <a href="data:image/jpeg;base64,{{ image_data }}" download>Download!</a>
+        </div>
+       <!-- {% if image_data %}
+
+
+       <img src="data:image/jpeg;base64,{{ image_data }}" alt="image"/> <br>
+       <a href="data:image/jpeg;base64,{{ image_data }}" download>Download!</a>
+       {% endif %} -->
+</main>
+{% endblock %}

@@ -1,0 +1,50 @@
+:root {
+  --font1: "Bebas Neue", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  color: #e8290b;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80px;
+  background-color: rgb(27, 116, 171);
+  /* trbl */
+  padding-left: 60px;
+  padding-right: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.navbar-brand {
+  font-size: 30px;
+  letter-spacing: 6px;
+  font-family: "Bebas Neue";
+}
+
+.navbar-links {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-link {
+  font-size: 24px;
+  font-family: "Bebas Neue", cursive;
+}

@@ -1,0 +1,65 @@
+{% extends "baselayout.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='style/css/table.css')}}"
+/>
+<script src="{{ url_for('static', filename='style/js/place_search.js')}}"></script>
+{% endblock%} {% block content %}
+<main class="content">
+  <!-- Corona Status Update Form -->
+  <h1>Health Status Update</h1>
+  <form
+    id="changeStatusForm"
+    method="POST"
+    action="/hospital/request/verify"
+    class="form-contain"
+  >
+    <label class="visitor-id" for="visitorId">Visitor Id</label>
+    <input type="text" id="visitorId" name="hospitalId" required />
+    <p></p>
+    <label class="corona-status" for="coronaStatus">Verification</label>
+    <select id="coronaStatus" name="hospitalStatus">
+      <option value="1">Verify</option>
+      <option value="0">Reject</option>
+    </select>
+    <p></p>
+    <button type="submit" class="btn">Update</button>
+  </form>
+  <p></p>
+
+  <!-- patient search box -->
+  <input
+    type="text"
+    id="search-input"
+    onkeyup="search('search-input','visitors-table')"
+    placeholder="Search Visitors"
+  />
+
+  <!-- patient search table -->
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Hospital Id</div>
+      <div class="col col-2">Hospital Name</div>
+      <div class="col col-3">UserName</div>
+      <div class="col col-4">Status</div>
+      <!-- <div class="col col-4">City</div>
+      <div class="col col-5">Phone Number</div>
+      <div class="col col-6">Email Address</div>
+      <div class="col col-7">Covid Status</div> -->
+    </li>
+    <div id="visitors-table">
+      {% for hospital in data %}
+      <li class="table-row">
+        <div class="col col-1" data-label="Job Id">{{ hospital[0] }}</div>
+        <div class="col col-2" data-label="Customer Name">
+          {{ hospital[1] }}
+        </div>
+        <div class="col col-3" data-label="Amount">{{ hospital[2] }}</div>
+        <div class="col col-4" data-label="Payment Status">Not Verified</div>
+      </li>
+      {% endfor %}
+    </div>
+  </ul>
+</main>
+{% endblock %}

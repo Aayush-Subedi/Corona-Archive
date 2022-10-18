@@ -1,0 +1,58 @@
+#entry {
+  color: #fff;
+  height: 80vh;
+  background-image: url("../images/corona_2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px;
+  text-align: center;
+}
+
+.entry-text {
+  margin-top: 80px;
+  font-size: 70px;
+  letter-spacing: 3px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.red-outlined-btn {
+  margin-top: 30px;
+  font-size: 30px;
+  color: #fff;
+  background-color: #e8290b;
+  outline: 1px solid #222;
+  border: none;
+  outline-offset: -5px;
+  padding: 10px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.red-outlined-btn:hover {
+  background-color: #fff;
+  color: #e8290b;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 120px;
+}
+
+.section-subtitle {
+  color: #e8290b;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 5px;
+}
+.section-header {
+  font-size: 60px;
+  margin-bottom: 10px;
+  font-family: var(--font1);
+}

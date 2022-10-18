@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+<!-- <main class="content"> -->
+<!-- <h1>Home Page</h1> -->
+
+<div id="left-index" style="width: 50%; float: left">
+  <section id="entry"></section>
+</div>
+
+<div id="right-index" style="padding-right: 15%; width: 50%; float: right">
+  <section>
+    <div class="flashNotification success" style="text-align: center">
+      <h1>Welcome!</h1>
+      <h2>User ID: {{session.get('userId')}}</h2>
+      <h2>User Type: {{session.get('userType')}}</h2>
+      <h2>User Name: {{userName}}</h2>
+      <h1>Permissions</h1>
+      <ul>
+        <li>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti,
+          provident tempore suscipit quam dignissimos molestiae qui
+        </li>
+        <li>
+          impedit est commodi necessitatibus consectetur dolorum minus laborum
+          illum aspernatur reprehenderit repudiandae nesciunt voluptas!
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+<!-- </main>  -->
+{% endblock %}

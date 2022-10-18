@@ -1,0 +1,59 @@
+
+{%  extends 'base.html' %}
+
+{% block head %}  <!-- For overiding template if need be -->
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/pages.css')}}"> <!-- Specific format for linking CSS -->
+<title>Citizen Info</title>
+
+{% endblock %}
+
+{% block body %}
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index')}}">HOME</a></li>
+            <li><a href="{{ url_for('citizen')}}">Citizen Registeration</a></li>
+            <li><a href="{{ url_for('citizen_info')}}">Citizen_info</a></li>
+            <li><a href="{{ url_for('owner')}}">Owner Registeration</a></li>
+            <li><a href="{{ url_for('owner_info')}}">Owner_info</a></li>
+            <li><a href="{{ url_for('agent')}}">Agent Login</a></li>
+            <li><a href="{{ url_for('hospital')}}">Hospital Login</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+{%  extends 'base.html' %}
+
+{% block head %}
+<title>Citizen Registeration</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center;">Citizen Registeration Info</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Contact-Number</th>
+            <th>E-mail</th>
+            <th>Date of Registeration</th>
+        </tr>
+        {% for task in Info %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.address }}</td>
+            <td>{{ task.city }}</td>
+            <td>{{ task.phone }}</td>
+            <td>{{ task.email }}</td>
+            <td>{{ task.date_created.date() }}</td>       
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
+

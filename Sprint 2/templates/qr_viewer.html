@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+
+<main class="content">
+  <h1>QR Page</h1>
+  {% if userIdString %}
+  <img
+    src="{{url_for('static', filename='uploads/qrcodes/qr' + userIdString+'.png')}}"
+    alt="image"
+  />
+  <br />
+  <a
+    href="{{url_for('static', filename='uploads/qrcodes/qr' + userIdString+'.png')}}"
+    download
+    >Download!</a
+  >
+  {% endif %}
+</main>
+{% endblock %}

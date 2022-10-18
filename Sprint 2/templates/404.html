@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block content %} {%
+include 'navbar.html' %}
+<main class="content">
+  <img
+    src="https://img.freepik.com/free-vector/error-404-concept-illustration_114360-1811.jpg?t=st=1648634583~exp=1648635183~hmac=25646048895166febfeadf4cba03177fb7d4b8b44f88ac6c8334782c9d78d8ca&w=2000"
+    width="60%"
+  />
+  <button><a href="{{ url_for('index') }}">Back to Home</a></button>
+</main>
+{% endblock %}

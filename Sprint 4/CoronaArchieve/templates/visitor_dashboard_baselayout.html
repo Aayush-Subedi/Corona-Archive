@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- required meta tags -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'style/css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename = 'style/css/form_style.css')}}"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="'viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale1.0, maximum-scale=1.0, user-scalable=0"
+    />
+
+    {% block head_js %} {% endblock %}
+
+    <!-- title per page -->
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Corona Archieve</title>
+    {% endif %}
+  </head>
+
+  <body>
+    {% include 'navbar.html' %} {% block content %} {% endblock %} {% include
+    'footer.html' %}
+    <script src="{{url_for('static', filename = 'style/js/main.js')}}"></script>
+  </body>
+</html>

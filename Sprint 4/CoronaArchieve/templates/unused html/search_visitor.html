@@ -1,0 +1,135 @@
+{% extends "agent_dashboard_baselayout.html" %}
+{% block content %}
+
+<!-- Search Bar -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+        <!-- <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-
+        awesome/4.7.0/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="/static/index.css">
+    </head>
+    <body>
+
+        <h1><center>Search Visitor</center></h1>
+        <form class="example" method="post" action="" 
+         style="margin:auto;max-width:600px">
+            <input type="text" placeholder="Search by name" name="book">
+            <button type="submit"> Search
+            </button>
+        </form>
+        <p></p>
+        <center>
+        <h2>The details of visitor your are searching for is as follow.</h2>
+        {% for item in data %}
+        <tr>
+            <td>Name: {{item[1]}}</td><br>
+            <td>Address: {{item[2]}}</td><br>
+            <td>Phone Number: {{item[4]}}</td><br>
+            {% if item[7] == True %}
+                <td>Covid Status: Positive</td><br>
+            {% else %}
+                <td>Covid Status: Negative</td><br>
+            {% endif %}
+            
+            </br>
+        </tr>
+    {% endfor %}
+
+        
+        </center>
+    </body>
+</html>
+{% endblock %}
+
+{% extends "baselayout.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='style/css/table.css')}}"
+/>
+
+<script src="{{ url_for('static', filename='style/js/visitor_place_search.js')}}"></script>
+<script src="{{ url_for('static', filename='style/js/date_convert.js')}}"></script>
+
+{% endblock %} {% block content %}
+<main class="content">
+  <h1>Visitor Information</h1>
+  <!-- Entry Time -->
+  <div>
+    <label class="entry-datetime" for="entry-time">From</label>
+    <input
+      type="datetime-local"
+      id="entry-time"
+      value="2022-06-12T19:30"
+      name="entry-time"
+    />
+
+    <!-- Exit Time -->
+
+    <label for="exit-time">To Time</label>
+    <input
+      type="datetime-local"
+      id="exit-time"
+      value="2022-06-12T19:30"
+      name="exit-time"
+    />
+    <input
+      type="text"
+      id="visitor-input"
+      onkeyup="searchAll()"
+      placeholder="Search Visitors"
+    />
+
+    <br />
+    <input
+      type="text"
+      id="place-input"
+      onkeyup="searchAll()"
+      placeholder="Search Place"
+    />
+    <button type="submit" onclick="searchAll()">Search</button>
+  </div>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Visitor Name</div>
+      <div class="col col-2">Place Name</div>
+      <div class="col col-3">Entry Time</div>
+      <div class="col col-4">Exit Time</div>
+      <div class="col col-5">Total Duration</div>
+    </li>
+    <div id="data-table">
+      {% for visitor_place in data %}
+      <li class="table-row">
+        <div class="col col-1" data-label="Job Id">{{ visitor_place[0] }}</div>
+        <div class="col col-2" data-label="Customer Name">
+          {{ visitor_place[1] }}
+        </div>
+        <div class="col col-3 timestamp-date" data-label="Amount">
+          {{ visitor_place[2] }}
+        </div>
+        <div class="col col-4 timestamp-date" data-label="Payment Status">
+          {{ visitor_place[3] }}
+        </div>
+        <div class="col col-5 time-duration" data-label="Payment Status">
+          {{ visitor_place[4] }}
+        </div>
+      </li>
+      {% endfor %}
+    </div>
+  </ul>
+</main>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

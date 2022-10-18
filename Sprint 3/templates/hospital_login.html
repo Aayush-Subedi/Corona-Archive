@@ -1,0 +1,47 @@
+{% extends "baselayout.html" %} {% block content %}
+<div class="container" id="container">
+  <!-- Hospital login form -->
+  <div class="form-container sign-in-container">
+    <form method="POST" action="#" class="form" id="login">
+      <h1 class="form__title">Hospital Login</h1>
+      <div class="form__input-group">
+        <!-- Username Field -->
+        <label for="username">Username: </label>
+        <input
+          type="text"
+          class="form__input"
+          name="username"
+          id="username"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Password Field -->
+        <label for="pass">Password: </label>
+        <input
+          type="password"
+          class="form__input"
+          name="password"
+          id="pass"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Submit Button -->
+        <button type="submit" class="form__button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Place for additional Information on right side -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Sign in with the credential provided by agent.</h1>
+        <p>If not yet registered, you can request to be registered.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

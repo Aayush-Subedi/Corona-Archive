@@ -1,0 +1,23 @@
+{% extends "baselayout.html" %} {% block content %}
+
+<!-- Information on Agent Dashboard-->
+<div class="container"?>
+    <div class="flashNotification success" style="text-align: center">
+      <h1>Welcome!</h1>
+      <h2>User ID: {{session.get('userId')}}</h2>
+      <h2>User Type: {{session.get('userType')}}</h2>
+      <h2>User Name: {{userName}}</h2>
+      <h1>Permissions</h1>
+      <ul>
+        <li>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti,
+          provident tempore suscipit quam dignissimos molestiae qui
+        </li>
+        <li>
+          impedit est commodi necessitatibus consectetur dolorum minus laborum
+          illum aspernatur reprehenderit repudiandae nesciunt voluptas!
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

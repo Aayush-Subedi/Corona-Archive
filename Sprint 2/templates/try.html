@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block content %} {%
+include 'navbar.html' %}
+<div id="left-body" style="width: 50%; float: left">
+  <section id="entry"></section>
+</div>
+<div id="right-body" style="width: 50%; float: right">
+  <section id="about">
+    {% include 'login_form.html' %}
+    <a href="{{ url_for('scan_qrcode') }}">
+    <button class="red-outlined-btn">
+      SCAN QR
+    </button>
+    </a>
+  </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "baselayout.html" %} {% block content %}
+
+<!-- Hospital registration form -->
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+    <form method="POST" action="#" class="form" id="login">
+      <h1 class="form__title">Hospital Registration</h1>
+      <div class="form__input-group">
+        <!-- Username Field -->
+        <label for="name">Name: </label>
+        <input
+          type="text"
+          class="form__input"
+          name="name"
+          id="name"
+          maxlength="20"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Username Field -->
+        <label for="username">Username: </label>
+        <input
+          type="text"
+          class="form__input"
+          name="username"
+          id="username"
+          maxlength="20"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Password Field -->
+        <label for="pass">Password: </label>
+        <input
+          type="password"
+          class="form__input"
+          name="pass"
+          id="pass"
+          maxlength="20"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Submit Button -->
+        <button type="submit" class="form__button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!--Place for additional information on right side-->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Register hospitals</h1>
+        <p>Enter all required details to register a new hospital.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

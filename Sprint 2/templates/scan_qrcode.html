@@ -1,0 +1,64 @@
+<!--sourced from: https://reeteshghimire.com.np/2021/05/27/access-camera-and-read-qr-code-using-javascript/ -->
+{% extends 'base.html' %} 
+
+{% block head %} 
+
+<script src="https://reeteshghimire.com.np/wp-content/uploads/2021/05/html5-qrcode.min_.js"></script>
+<style>
+  .result{
+    background-color: green;
+    color:#fff;
+    padding:20px;
+  }
+  .row{
+    display:flex;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<main class="content">
+  <h1>Scan QR Code to Register</h1>
+  <div class="flashNotification success" style="text-align: center">
+    <h1>Welcome!</h1>
+    <h2>Your user id is: {{session.get('userId')}}</h2>
+    <h2>Your usertype is: {{session.get('userType')}}</h2>
+    <h2>Your user name is: {{userName}}</h2>
+  </div>
+  <div class="col">
+    <div style="width:500px; text-align: center" id="reader"></div>
+  </div>
+  <div class="col" style="padding:30px; text-align: center">
+    <h4>SCAN RESULT</h4> 
+    <div id="result">Result Here</div> 
+    <p>Current Date and Time is <span id='date-time'></span>. <br>
+    Your current time is <span id='current-time'></span>.</p>
+    {% if result %}
+        <p>you have a result</p>
+    {% endif %}
+       
+  </div>
+</main>
+
+
+<script type="text/javascript">
+function onScanSuccess(qrCodeMessage) {
+    document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span><br><p>Scanning successful</p>';
+}
+function onScanError(errorMessage) {
+  //handle scan error
+}
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+</script>
+<script>
+    var dt = new Date();
+    var seconds = dt.toLocaleTimeString();
+    document.getElementById('date-time').innerHTML=dt;
+    document.getElementById('current-time').innerHTML=seconds;
+</script>
+{% endblock %}

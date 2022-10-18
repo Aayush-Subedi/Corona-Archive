@@ -1,0 +1,84 @@
+{% extends "baselayout.html" %} {% block content %}
+<div class="container" id="container">
+  <!-- visitor registration form -->
+  <div class="form-container sign-in-container">
+    <form method="POST" action="/reg_visitor" class="form" id="login">
+      <h1 class="form__title">Visitor</h1>
+      <div class="form__input-group">
+        <!-- name field -->
+        <label for="name"> Name: </label>
+        <input type="text" class="form__input" name="name" id="name" required />
+      </div>
+      <div class="form__input-group">
+        <!-- Address field -->
+        <label for="address"> Address: </label>
+        <input
+          type="text"
+          class="form__input"
+          name="address"
+          id="address"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- City field -->
+        <label for="city"> City: </label>
+        <input type="text" class="form__input" name="city" id="city" required />
+      </div>
+      <div class="form__input-group">
+        <!-- Phone Number field -->
+        <label for="phoneNumber">Phone Number: </label>
+        <input
+          type="tel"
+          class="form__input"
+          name="phoneNumber"
+          id="phone_number"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- email field -->
+        <label for="email"> Email: </label>
+        <input
+          type="email"
+          class="form__input"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- email field -->
+        <label for="password"> Password: </label>
+        <input
+          type="password"
+          class="form__input"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+      <!-- Submit BUtton-->
+      <button class="form__button" type="submit" value="Submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Place for additional INformation on right side-->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>New user?</h1>
+        <h1>Register yourself here</h1>
+        <p>
+          Enter all required details to sign up and start a journey with us.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- {% if value and value.user %}
+    <script>alert(" You have successfully been registered!")</script>
+    {% endif %} -->
+</div>
+
+{% endblock content%}

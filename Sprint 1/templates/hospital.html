@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block head %}
+<!-- For overiding template if need be -->
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/pages.css')}}" />
+<!-- Specific format for linking CSS -->
+<title>Hospital Login</title>
+
+{% endblock %} {% block body %}
+<nav id="navbar">
+  <a class="navbar-brand" href=".{{ url_for('index')}}">CORONA ARCHIVE</a>
+  <div class="navbar-links">
+    <a class="navbar-link" href="{{ url_for('index')}}">HOME</a>
+    <a class="navbar-link" href="{{ url_for('citizen')}}"
+      >Citizen Registeration</a
+    >
+    <!-- Agent has access to info about Citizens(In progress) -->
+    <a class="navbar-link" href="{{ url_for('owner')}}">Owner Registeration</a>
+    <!-- Agent has access to info about Owners(In progress) -->
+    <a class="navbar-link" href="{{ url_for('agent')}}">Agent Login</a>
+    <a class="navbar-link" href="{{ url_for('hospital')}}">Hospital Login</a>
+  </div>
+</nav>
+<div class="text">
+  <h1>Hospital Login</h1>
+</div>
+<br /><br />
+<div class="register_form">
+  <br /><br />
+  <form style="margin: auto; padding: 10px" action="/hospital" method="POST">
+    <!-- Hospital inputs login info iven by us and can login with their credentials -->
+    <div class="input_field">
+      <label>Username:</label>
+      <input
+        type="text"
+        placeholder="Username"
+        name="username"
+        id="username"
+        required
+      />
+    </div>
+    <br /><br />
+    <div class="input_field">
+      <label>Password:</label>
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        id="password"
+        required
+      />
+    </div>
+    <br /><br />
+    <button class="login_button" name="Login">Login</button>
+  </form>
+  <br /><br />
+</div>
+{% endblock %}

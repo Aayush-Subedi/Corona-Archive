@@ -1,0 +1,9 @@
+# don't include envirement
+*env/
+__pycache__/
+*.pyc
+.git/
+*.pyc
+*.DS_Store
+agent_dash.html
+*.png

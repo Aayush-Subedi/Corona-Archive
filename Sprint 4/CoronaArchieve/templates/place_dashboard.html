@@ -1,0 +1,41 @@
+{% extends "baselayout.html" %} {% block content %}
+<div class="container">
+  <div>
+    <div class="banner">
+      <h1 class>Welcome Place Owner</h1>
+    </div>
+    <div>
+      <h2 style="text-align: center">
+        Here you can find QR code of your place for visitors to scan
+      </h2>
+    </div>
+    <div style="margin-top: 10px">
+      <img
+        style="
+          width: 28%;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border: 3px solid #0a6ccb;
+        "
+        src="{{ url_for('static',filename=image)}}"
+        alt="qrcode image"
+      />
+      <a
+        href="{{ url_for('static',filename=image)}}"
+        class="buttonDownload"
+        style="
+          width: 28%;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 15px;
+          margin-bottom: 25px;
+        "
+        download="qrcode image"
+        >Download</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock content%}

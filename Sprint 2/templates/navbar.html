@@ -1,0 +1,32 @@
+
+<nav id="navbar">
+  <a class="navbar-brand" href=".{{ url_for('index')}}">Corona Archive</a>
+  <div class="navbar-links">
+    {% if session.get('userType') %}
+    <a href="{{ url_for('index') }}" class="navbar-link">Home</a>
+    {% if session.get('userType') == 'Places' %}
+    <a href="{{ url_for('show_qrcode') }}" class="navbar-link">Qr Code</a>
+    {% endif %}
+    {% if session.get('userType') == 'Visitors' %}
+    <a href="{{ url_for('scan_qrcode') }}" class="navbar-link">Scan Qr Code</a>
+    {% endif %}
+     {% if session.get('userType') == 'Hospital' %}
+    <a href="{{ url_for('hospital_visitor') }}" class="navbar-link">Visitors</a>
+    {% endif %} {% if session.get('userType') == 'Agency' %}
+    <a href="{{ url_for('visitorinfo') }}" class="navbar-link">Visitor Info</a>
+    <a href="{{ url_for('placeinfo') }}" class="navbar-link">Place Info</a>
+    <a href="{{ url_for('hospital_registration') }}" class="navbar-link"
+      >Hospital Registration</a
+    >
+    {% endif %} {% else %}
+    <a href="{{ url_for('login') }}" class="navbar-link">Login</a>
+    <a href="{{ url_for('register') }}" class="navbar-link">Register</a>
+
+    {% endif %}
+    <!-- <div style="flex: 1"></div> -->
+    <a href="{{ url_for('imprint') }}" class="navbar-link">Imprint</a>
+    {% if session.get('userType') %}
+    <a href="{{ url_for('logout') }}" class="navbar-link">Logout</a>
+    {% endif %}
+  </div>
+</nav>

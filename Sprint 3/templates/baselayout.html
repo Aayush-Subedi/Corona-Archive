@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- required meta tags -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'style/css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename = 'style/css/form_style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename = 'style/css/table.css')}}"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="'viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    {% block head %} {% endblock head %}
+
+    <!-- title per page -->
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Corona Archieve</title>
+    {% endif %}
+  </head>
+  <body>
+    <!-- navigation menu-->
+    {% include 'navbar.html' %}
+
+    <!-- error message printed in the screen -->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flashNotification danger">
+      <center>{{ messages[0] }}</center>
+    </div>
+    {% endif %} {% endwith %}
+
+    <!--contents for different pages-->
+    {% block content %} {% endblock %}
+
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+    <!-- javascript file -->
+    <script src="{{url_for('static', filename = 'style/js/main.js')}}"></script>
+  </body>
+</html>

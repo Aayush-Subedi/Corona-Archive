@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- required meta tags -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'style/css/form_style.css')}}">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="'viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale1.0, maximum-scale=1.0, user-scalable=0" />
+
+    {% block head %}
+
+    {% endblock head %}
+
+    <!-- title per page -->
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title>Corona Archieve</title>
+    {% endif %}
+
+</head>
+
+<body>
+    <!-- <div id="corona_archive" class="header" style="text-shadow: 2px 2px 30px #222; color: rgb(236, 175, 6); ">
+        <h1>Corona Archive</h1>
+    </div> -->
+
+    <!-- navigation menu-->
+    {% include 'navbar.html'%}
+    <!-- <div id="navibar" class="navbar nav_container  topBotomBordersOut">
+        
+           
+        <a href="dashboard_agent">
+              <h1 style="float: right;">Dashboard</h1>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <h1 style="float: right;">Logout</h1>
+        </a>
+
+    </div> -->
+    <!--contents for different pages-->
+    {% block content %}
+
+    {% endblock %}
+    {% include 'footer.html'%}
+    <!-- <footer class="footer-distributed" style="position: absolute;">
+
+        <div class="footer-left">
+            <a href="{{ url_for('index') }}">
+                <h3>Corona<span>Archieve</span></h3>
+            </a>
+            <p class="footer-links">
+            <h3>Quick Links</h3>
+            <div>
+                <a href="{{ url_for('index') }}">
+                    <h4>Home</h4>
+                </a>
+                <a href="{{ url_for('index') }}">
+                    <h4>Support</h4>
+                </a>
+            </div>
+      
+            </p>
+      
+            <p class="footer-company-name">CoronaArchieve © 2022</p>
+      
+        </div>
+      
+        <div class="footer-right">
+            <h1 style="text-align: center; color: rgb(255, 255, 255);">Impressum</h1>
+            <p style="font-family: serif; ">
+      
+                This website is student lab work and does not necessarily reflect Jacobs
+                University Bremen opinions. Jacobs University Bremen does <br> not endorse this site,
+                nor is it checked by Jacobs University Bremen regularly, nor is it part of the
+                official Jacobs University Bremen <br>web presence. For each external link existing
+                on this website, we initially have checked that the target page does not contain
+                contents <br>which is illegal wrt. German jurisdiction. However, as we have no in-
+                fluence on such contents, this may change without our notice.<br> Therefore we
+                deny any responsib- ility for the websites referenced through our external
+                links from here. No information conflicting<br> with GDPR is stored in the server.
+      
+            </p>
+      
+        </div>
+      
+      </footer> -->
+      <script src="{{url_for('static', filename = 'style/js/main.js')}}"></script>
+      </body>
+      
+      </html>

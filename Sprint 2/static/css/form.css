@@ -1,0 +1,182 @@
+
+.form-card-container {
+  background: rgb(253, 253, 253);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 1rem 1rem -0.75rem rgba(0, 0, 0, 0.125);
+  box-shadow: 0px 0rem 0.7rem -0.2rem rgb(0 0 0 / 13%);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-card-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-card-container.register form {
+  max-width: 510px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 20px;
+}
+
+.input-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.form-card-container.login form {
+  max-width: 300px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 20px;
+}
+
+.form-card-container.login .user-box {
+  width: 85%;
+}
+
+.form-card-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  row-gap: 16px;
+}
+
+.form-card-container .user-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card-container.login .user-box input {
+  width: 100%;
+}
+
+.form-card-container .user-box input {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  height: 2.25rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+  order: 2;
+  padding: 0.25rem 0.5rem;
+  width: 15rem;
+  transition: all 0.25s;
+}
+
+.form-card-container label {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.radio-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.radio input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 2px;
+}
+
+.radio-place input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 2px;
+}
+
+.radio input:checked {
+  /* border: 6px solid hsl(210, 50%, 38%); */
+  border: 6px solid #b02e0c;
+}
+
+.radio-place input:checked {
+  /* border: 6px solid hsl(210, 50%, 38%); */
+  border: 6px solid #b02e0c;
+}
+
+.login .radio-container {
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  row-gap: 10px;
+}
+
+.login .radio {
+  width: 40%;
+}
+.login .radio-place {
+  width: 60%;
+}
+
+button[type="submit"] {
+  color: hsl(0, 0%, 98%);
+  background: #585c8c;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 0.625rem;
+  padding: 12px 0;
+  margin-bottom: 1rem;
+  border: none;
+  text-transform: uppercase;
+  width: 85%;
+  max-width: 300px;
+}
+
+.form-card-container a {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.hide {
+  display: none !important;
+}
+
+
+
+.form-card-container.registration{
+  max-width: 300px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  column-gap: 20px;
+}

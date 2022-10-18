@@ -1,0 +1,73 @@
+<div class="form-card-container login">
+  <h2>Log in</h2>
+
+  <form method="post" action="/login">
+    <div class="user-box email">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter Email"
+        value="{{ request.form['email'] }}"
+      />
+    </div>
+
+    <div class="user-box name hide">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter Name"
+        value="{{ request.form['name'] }}"
+      />
+    </div>
+
+    <div class="user-box">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+        value="{{ request.form['password'] }}"
+        required
+      />
+    </div>
+
+    <div class="radio-container">
+      <div class="radio">
+        <input
+          type="radio"
+          id="visitor"
+          name="userType"
+          value="visitor"
+          checked
+        />
+        <label for="visitor">Visitor</label>
+      </div>
+
+      <div class="radio">
+        <input type="radio" id="agency" name="userType" value="agency" />
+        <label for="agency">Agency</label>
+      </div>
+
+      <div class="radio">
+        <input type="radio" id="hospital" name="userType" value="hospital" />
+        <label for="hospital">Hospital</label>
+      </div>
+
+      <div class="radio-place">
+        <input type="radio" id="place" name="userType" value="place" />
+        <label for="place">Place Owner</label>
+      </div>
+    </div>
+
+    <button type="submit">Log In</button>
+  </form>
+
+  <a href="{{ url_for('register') }}">Don't have an account? Register now!</a>
+</div>
+
+<script
+  defer
+  src="{{ url_for('static', filename = 'js/loginForm.js') }}"
+></script>

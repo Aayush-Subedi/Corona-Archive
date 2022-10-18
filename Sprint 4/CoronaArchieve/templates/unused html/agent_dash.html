@@ -1,0 +1,182 @@
+{% block content %}
+
+  <style>
+  
+  body{
+    background:#FDFEF9;
+    font-family: 'Arimo', sans-serif;
+  }
+  h2{
+    color:#000;
+    text-align:center;
+    font-size:2em;
+  }
+  .warpper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tab{
+    cursor: pointer;
+    padding:10px 20px;
+    margin:0px 2px;
+    background:#000;
+    display:inline-block;
+    color:#fff;
+    border-radius:3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #00000080;
+  }
+  .panels{
+    background:#fffffff6;
+    box-shadow: 0 2rem 2rem #00000080;
+    min-height:400px;
+    width:100%;
+    max-width:1000px;
+    border-radius:3px;
+    overflow:hidden;
+    padding:20px;  
+  }
+  .panel{
+    display:none;
+    animation: fadein .8s;
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  .panel-title{
+    font-size:1.5em;
+    font-weight:bold
+  }
+  .radio{
+    display:none;
+  }
+  #one:checked ~ .panels #one-panel,
+  #two:checked ~ .panels #two-panel,
+  #three:checked ~ .panels #three-panel{
+    display:block
+  }
+  #one:checked ~ .tabs #one-tab,
+  #two:checked ~ .tabs #two-tab,
+  #three:checked ~ .tabs #three-tab{
+    background:#fffffff6;
+    color:#000;
+    border-top: 3px solid #000;
+  }
+  </style>
+  
+  <h2></h2>
+  <div class="warpper">
+    <input class="radio" id="one" name="group" type="radio" checked>
+    <input class="radio" id="two" name="group" type="radio">
+    <input class="radio" id="three" name="group" type="radio">
+    <div class="tabs">
+    <label class="tab" id="one-tab" for="one">Search Visitors</label>
+    <label class="tab" id="two-tab" for="two">Register Hospital</label>
+    <label class="tab" id="three-tab" for="three">Search Hospitals</label>
+      </div>
+    <div class="panels">
+    <div class="panel" id="one-panel">
+  
+      <!-- searching visitor by name -->
+      <h1><center>Search Visitor</center></h1>
+          <form class="example" method="post" action="" 
+           style="margin:auto;max-width:600px">
+              <input type="text" placeholder="Search by name" name="book">
+              <button type="submit"> Search
+              </button>
+          </form>
+          <p></p>
+          <center>
+          <h2>The details of visitor your are searching for is as follow.</h2>
+          {% for item in data %}
+          <tr>
+              <td><strong>Name: {{item[1]}}</strong></td><br>
+              <td><strong>Address: {{item[2]}}</strong></td><br>
+              <td><strong>Phone Number: {{item[4]}}</strong></td><br>
+              {% if item[7] == True %}
+                  <td><strong>Covid Status: Positive</strong></td><br>
+              {% else %}
+                  <td><strong>Covid Status: Negative</strong></td><br>
+              {% endif %}
+            
+              </br>
+          </tr>
+      {% endfor %}
+          </center>
+      
+          
+    </div>
+    <div class="panel" id="two-panel">
+      <!-- Hospital registration form -->
+      <div class="container" id="container">
+        <div class="form-container sign-in-container">
+          <form method="POST" action="#" class="form" id="login">
+              <h1 class="form__title">Register Hospital</h1>
+              <div class="form__input-group">
+                <!-- Username Field -->
+                <label for="username">Username: </label>
+                <input type="text" class="form__input" name="username" id="username" maxlength="20" required> 
+              </div>
+              <div class="form__input-group">
+                <!-- Password Field -->
+                <label for="pass">Password: </label>
+                <input type="password" class="form__input" name="pass" id="pass" maxlength="20" required> 
+              </div>
+              <div class="form__input-group">
+                <!-- Submit Button -->
+                <button type="submit" class="form__button">Submit</button>
+              </div>
+           </form>
+          </div> 
+   
+        <!--Place for additional information on right side-->
+       <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Register hospitals</h1>
+                    <p>Enter all required details to register a new hospital.</p>
+                  
+                </div>
+            </div>
+        </div>
+     </div>
+      
+    </div>
+    <div class="panel" id="three-panel">
+      <!-- searching hospital by name -->
+      <h1><center>Search Hospitals</center></h1>
+          <form class="example" method="post" action="" 
+           style="margin:auto;max-width:600px">
+              <input type="text" placeholder="Search by name" name="hospital">
+              <button type="submit"> Search
+              </button>
+          </form>
+          <p></p>
+          <center>
+          <h2>The details of hospital your are searching for is as follow.</h2>
+          {% for item in data2 %}
+          <tr>
+              <td><strong>Name: {{item[1]}}</strong></td><br>
+              <td><strong>Address: {{item[2]}}</strong></td><br>
+              <td><strong>Phone Number: {{item[4]}}</strong></td><br>
+              {% if item[7] == True %}
+                  <td><strong>Covid Status: Positive</strong></td><br>
+              {% else %}
+                  <td><strong>Covid Status: Negative</strong></td><br>
+              {% endif %}
+            
+              </br>
+          </tr>
+      {% endfor %}
+          </center>
+    </div>
+    </div>
+  </div>
+  <h2></h2>
+  
+  {% endblock content%}

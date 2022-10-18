@@ -1,0 +1,446 @@
+* {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    font-family: "Poopins", sans-serif;
+  }
+
+  html {
+    height: 100%;
+    /* background-color: #f2f4f8; */
+    background-color: #fdfdfd;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0px;
+/*   
+    /* background-image: url("../images/corona.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%; */
+ 
+     /* background-color: rgb(192, 202, 202); */
+     background-color: rgba(37, 150, 190);
+    height: 100%;
+    width: 100%;
+    margin-left:auto;
+    margin-right:auto; 
+  }
+  
+  .user {
+    padding: 10px;
+    margin: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+  }
+  
+  
+  #navbar {
+    /* position: absolute; */
+    top: 0%;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    /* background-color: rgba(82,217,221); */
+    /* float:right; */
+    background-color: #585c8c;
+    padding-top: 30px ;
+    padding-left: 50px;
+    padding-right: 20px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  /* nav {
+    margin-bottom: 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #ffffff; 
+    justify-content: flex-start;
+    align-items: center;
+  }  */
+  
+  nav a {
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 50px;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #e8290b;
+  }
+  
+  .navbar-brand {
+    font-size: 30px;
+    letter-spacing: 6px;
+    font-family: "Bebas Neue";
+  }
+  .navbar-link {
+    font-size: 24px;
+    font-family: "Bebas Neue";
+  }
+  
+   .navbar-links {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+  } 
+  
+  .right{
+    float: right;
+    padding-right: 30px;
+  }
+   .left{
+    float: left;
+    padding-right: 20px; 
+  } 
+
+
+  #left-body{
+    width: 50%; 
+    float:"left";
+    background-image: url("../images/try3.svg");
+    background-repeat: no-repeat;
+    background-position: 30px 20px;
+    /* background-attachment: fixed; */
+    background-size: 90% 90%;
+  }
+
+  #right-body{
+    width: 50%;
+    float:right;
+    padding-top: 50px;
+  }
+  
+  .content {
+    border: 1px solid #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-content: stretch;
+  }
+/*   
+  .content > * {
+     flex-grow: 1; 
+  } */
+  
+  .flashNotification {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 89, 255);
+    border-radius: 0.25rem;
+  }
+  
+  .flashNotification.success {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .flashNotification a:link,
+  .flashNotification a:visited,
+  .flashNotification a:hover,
+  .flashNotification a:active {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+  }
+  
+  #space{
+    width: 100%;
+  }
+  footer {
+    color: #ffffff;
+    position: absolute; 
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(37, 150, 190);
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .heart {
+    color: #e8290b;
+  } 
+
+
+
+  #entry {
+    color: #fff;
+    height: 80vh;
+    background-image: url("../images/corona_2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px;
+    text-align: center;
+  }
+  
+  .entry-text {
+    margin-top: 80px;
+    font-size: 70px;
+    letter-spacing: 3px;
+    font-family: "Bebas Neue", cursive;
+  }
+  
+  .red-outlined-btn {
+    margin-top: 30px;
+    font-size: 30px;
+    color: #fff;
+    background-color: #d2360f;
+    /* outline: 1px solid #222; */
+    border: none;
+    outline-offset: -5px;
+    padding: 10px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+  }
+  
+  .red-outlined-btn:hover {
+    background-color: #fff;
+    color: #e80b0b;
+  }
+  
+  #about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 120px;
+  }
+  
+  .section-subtitle {
+    color: #e8290b;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 5px;
+  }
+  .section-header {
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-family: var(--font1);
+  }
+  
+
+
+
+
+  
+
+
+  /* login /*
+
+  /* Stying influenced from: https://codepen.io/alvaromontoro/pen/JjoWVmx */
+
+.form-card-container {
+    /* width: 400px; 
+    height: 400px; 
+    padding: 20px;
+    background: #ffff;
+    box-sizing: border-box;
+    border-radius: 10px;  */
+  
+    background: rgb(253, 253, 253);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 1rem 1rem -0.75rem rgba(0, 0, 0, 0.125);
+    box-shadow: 0px 0rem 0.7rem -0.2rem rgb(0 0 0 / 13%);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+   /* .form-card-container.login {
+    max-height: 300px; 
+  }  */
+  
+  .form-card-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-card-container.register form {
+    max-width: 510px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 20px;
+  }
+  
+  .input-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  
+  .form-card-container.login form {
+    max-width: 300px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 20px;
+  }
+  
+  .form-card-container.login .user-box {
+    width: 85%;
+  }
+  
+  .form-card-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    row-gap: 16px;
+  }
+  
+  .form-card-container .user-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-card-container.login .user-box input {
+    width: 100%;
+  }
+  
+  /* .form-card-container input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+  } */
+  .form-card-container .user-box input {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 2.25rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+    order: 2;
+    padding: 0.25rem 0.5rem;
+    width: 15rem;
+    transition: all 0.25s;
+  }
+  
+  .form-card-container label {
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .radio-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+   .radio input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+  
+    position: relative;
+    top: 2px;
+  }
+  
+  .radio-place input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+  
+    position: relative;
+    top: 2px;
+  }
+ 
+  .radio input:checked {
+    /* border: 6px solid hsl(210, 50%, 38%); */
+    border: 6px solid #b02e0c;
+  }
+  .radio-place input:checked {
+    /* border: 6px solid hsl(210, 50%, 38%); */
+    border: 6px solid #b02e0c;
+  }
+
+  
+  .login .radio-container {
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 10px;
+  }
+  
+  .login .radio {
+    width: 50%;
+  }
+  .login .radio-place {
+    width: 70%;
+  }
+  
+  button[type="submit"] {
+    color: hsl(0, 0%, 98%);
+    /* background: hsl(210, 50%, 38%); */
+    background: #585c8c;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 0.625rem;
+    padding: 12px 0;
+    margin-bottom: 1rem;
+    border: none;
+    text-transform: uppercase;
+    width: 85%;
+    max-width: 300px;
+  }
+  
+  /* .form-card-container.register button[type="submit"] {
+    width: 50%;
+  } */
+  
+  .form-card-container a {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+  
+  /* For hiding and displaying content, controlled by form.js file */
+  .hide {
+    display: none !important;
+  }
+  

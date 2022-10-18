@@ -1,0 +1,594 @@
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+#title {
+    background-color: rgb(98, 92, 161);
+    padding-left: 20px;
+    padding-top: 10px;
+    text-align: center;
+    text-shadow: 15px 15px 30px #222; 
+    color: rgb(245, 194, 56);
+    font-size: 35px;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+}
+
+.banner_image{
+    width: 95%;
+}
+
+.header {
+    background-color: rgb(98, 92, 161);
+    padding: 0px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(98, 92, 161);
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+	text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+    
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav_container
+{
+    padding-right: 20px;
+    margin-left: auto; 
+    margin-right: 0;
+    padding-top: 15px;
+    padding-bottom: 10px;
+	text-align: center;
+}
+
+.nav_container a
+{
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+
+
+/* Top and Bottom borders go out */
+div.topBotomBordersOut a:before, div.topBotomBordersOut a:after
+{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #FFF;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+div.topBotomBordersOut a:before
+{
+    top: 0px;
+    transform: translateY(10px);
+}
+
+div.topBotomBordersOut a:after
+{
+    bottom: 0px;
+    transform: translateY(-10px);
+}
+
+div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+
+
+/* footer css  */
+* {
+    font-family: Roboto;
+  }
+  
+  .footer-distributed{
+      background-color: rgb(98, 92, 161);
+      box-sizing: border-box;
+      width: 100%;
+      font: bold 16px sans-serif;
+      text-align: left;
+      padding: 50px 60px 40px;
+      overflow: hidden;
+  }
+  
+  
+  /* Footer left */
+  
+  .footer-distributed .footer-left{
+        float: left;
+        padding-left: 20px;
+        width: 50%;
+        
+  }
+  
+  /* The company logo */
+  
+  .footer-distributed h3{
+      color:  #ffffff;
+      font: normal 36px 'Roboto';
+      margin: 0 0 10px;
+  }
+  .footer-distributed h2{
+
+    color:  #ffffff;
+    font: normal 26px 'Roboto';
+    margin: 0 0 10px;
+}
+.footer-distributed a:link {
+  text-decoration: none;
+}
+
+.footer-distributed h3 span{
+    color: rgb(188, 250, 246);
+  }
+  
+  /* Footer links */
+  
+.footer-distributed .footer-links{
+   
+      color:  #ffffff;
+      margin: 0 0 10px;
+      padding: 0;
+  }
+  
+.footer-distributed .footer-links a{
+      display:inline-block;
+      line-height: 1.8;
+      text-decoration: none;
+      color:  inherit;
+  }
+  
+  .footer-distributed .footer-company-name{
+      color:  #ffffff;
+      font-size: 20px;
+      font-weight: normal;
+      margin: 0;
+  }
+  
+  /* Footer social icons */
+  
+  .footer-distributed .footer-icons{
+      margin-top: 40px;
+  }
+  
+  .footer-distributed .footer-icons a{
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      background-color:  #33383b;
+      border-radius: 2px;
+  
+      font-size: 20px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 35px;
+  
+      margin-right: 3px;
+      margin-bottom: 5px;
+  }
+  
+  /* Footer Right */
+  
+  .footer-distributed .footer-right{
+      float: right;
+  }
+  
+  .footer-distributed .footer-right p{
+      display: inline-block;
+      vertical-align: top;
+      margin: 15px 42px 0 0;
+      color: #ffffff;
+  }
+  
+  /* The contact form */
+  
+  .footer-distributed form{
+      display: inline-block;
+  }
+  
+  .footer-distributed form input,
+  .footer-distributed form textarea{
+      display: block;
+      border-radius: 3px;
+      box-sizing: border-box;
+      background-color:  #1f2022;
+      box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      border: none;
+      resize: none;
+  
+      font: inherit;
+      font-size: 14px;
+      font-weight: normal;
+      color:  #d1d2d2;
+  
+      width: 400px;
+      padding: 18px;
+  }
+  
+  .footer-distributed ::-webkit-input-placeholder {
+      color:  #5c666b;
+  }
+  
+  .footer-distributed ::-moz-placeholder {
+      color:  #5c666b;
+      opacity: 1;
+  }
+  
+  .footer-distributed :-ms-input-placeholder{
+      color:  #5c666b;
+  }
+  
+  
+  .footer-distributed form input{
+      height: 55px;
+      margin-bottom: 15px;
+  }
+  
+  .footer-distributed form textarea{
+      height: 100px;
+      margin-bottom: 20px;
+  }
+  
+  .footer-distributed form button{
+      border-radius: 3px;
+      background-color:  #33383b;
+      color: #ffffff;
+      border: 0;
+      padding: 15px 50px;
+      font-weight: bold;
+      float: right;
+  }
+  
+  /* If you don't want the footer to be responsive, remove these media queries */
+  
+  @media (max-width: 1000px) {
+  
+      .footer-distributed {
+          font: bold 14px sans-serif;
+      }
+  
+      .footer-distributed .footer-company-name{
+          font-size: 12px;
+      }
+  
+      .footer-distributed form input,
+      .footer-distributed form textarea{
+          width: 250px;
+      }
+  
+      .footer-distributed form button{
+          padding: 10px 35px;
+      }
+  
+  }
+  
+  @media (max-width: 800px) {
+  
+      .footer-distributed{
+          padding: 30px;
+      }
+  
+      .footer-distributed .footer-left,
+      .footer-distributed .footer-right{
+          float: none;
+          max-width: 300px;
+          margin: 0 auto;
+      }
+  
+      .footer-distributed .footer-left{
+          margin-bottom: 40px;
+      }
+  
+      .footer-distributed form{
+          margin-top: 30px;
+      }
+  
+      .footer-distributed form{
+          display: block;
+      }
+  
+      .footer-distributed form button{
+          float: none;
+      }
+  }
+  
+
+
+  /* css for download button  */
+.buttonDownload {
+	display: inline-block;
+	position: relative;
+	padding: 10px 25px;
+  
+	background-color: #060233;
+	color: white;
+  
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 0.9em;
+	text-align: center;
+	text-indent: 15px;
+}
+
+.buttonDownload:hover {
+	background-color: #333;
+	color: white;
+}
+
+.buttonDownload:before, .buttonDownload:after {
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 15px;
+	top: 52%;
+}
+
+/* Download box shape  */
+.buttonDownload:before {
+	width: 10px;
+	height: 2px;
+	border-style: solid;
+	border-width: 0 2px 2px;
+}
+
+/* Download arrow shape */
+.buttonDownload:after {
+	width: 0;
+	height: 0;
+	margin-left: 3px;
+	margin-top: -7px;
+  
+	border-style: solid;
+	border-width: 4px 4px 0 4px;
+	border-color: transparent;
+	border-top-color: inherit;
+	
+	animation: downloadArrow 2s linear infinite;
+	animation-play-state: paused;
+}
+
+.buttonDownload:hover:before {
+	border-color: #060233;
+}
+
+.buttonDownload:hover:after {
+	border-top-color: #060233;
+	animation-play-state: running;
+}
+
+/* keyframes for the download icon anim */
+@keyframes downloadArrow {
+	/* 0% and 0.001% keyframes used as a hackish way of having the button frozen on a nice looking frame by default */
+	0% {
+		margin-top: -7px;
+		opacity: 1;
+	}
+	
+	0.001% {
+		margin-top: -15px;
+		opacity: 0;
+	}
+	
+	50% {
+		opacity: 1;
+	}
+	
+	100% {
+		margin-top: 0;
+		opacity: 0;
+	}
+}
+
+
+
+/* css for timer*/
+#seconds {
+    font-size: 7em;}
+  
+  #minutes {
+    font-size: 7em;
+  }
+  #hours {
+    font-size: 7em;}
+
+  #colon {
+    font-size: 7em;
+  }
+
+
+  /* css for logout button*/
+
+  .buttonLogout {
+	display: inline-block;
+	position: relative;
+	padding: 10px 25px;
+  
+	background-color: #060233;
+	color: white;
+  
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 0.9em;
+	text-align: center;
+	text-indent: 15px;
+}
+
+.buttonLogout:hover {
+	background-color: #333;
+	color: white;
+}
+
+.buttonLogout:before, .buttonDownload:after {
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 15px;
+	top: 52%;
+}
+
+
+.buttonLogout:hover:before {
+	border-color: #060233;
+}
+
+.buttonLogout:hover:after {
+	border-top-color: #060233;
+	animation-play-state: running;
+}
+
+/* visitor_place_time search filter css */
+.sort-box{
+    width: 45%;
+    background-color: #749db7;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7)
+}
+
+.entry-datetime{
+    font-size: 20px;
+    padding-left: 30%;
+}
+
+.exit-datetime{
+    font-size: 20px;
+    padding-left: 30%;
+}
+
+#entry-time{
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+    text-align: center;
+}
+
+#exit-time{
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+    text-align: center;
+}
+
+#visitor-input{
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+}
+
+#place-input{
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+}
+
+.submit-button{
+    margin: auto 40%;
+    padding-top: 10px;
+    
+}
+
+.form-contain{
+    width: 20%;
+    background-color: #749db7;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7)
+}
+
+.visitor-id{
+    font-size: 25px;
+}
+
+.corona-status{
+    font-size: 25px;
+
+}
+
+
+/* Hospital info update css */
+#visitorId{
+    border:1px solid #000000;
+    height: 50px;
+    background-color: #ffffff;
+    min-width: 160px;
+    font-size: larger;
+    text-align: center;
+    padding-left: 30px;  
+    width:90%;
+}
+
+#coronaStatus{
+    height: 50px;
+    background-color: #ffffff;
+    min-width: 160px;
+    z-index: 1;
+    font-size: larger;
+    padding-left: 30px;
+    text-align: center;
+    width:90%;
+}
+
+
+#hospital-search-input{
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+}
+
+#search-input{
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+}
+
+.btn{
+    margin: auto 40%;
+    padding-top: 10px;
+    
+}
+
+/* Flash Notification CSS */
+
+.flashNotification.danger {
+    background-color: rgb(255, 48, 48);
+    width:100%;
+    margin: 0 auto;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5)
+  }
+
+.flashNotification {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #51262b;
+    color: rgb(255, 255, 255);
+  }
+

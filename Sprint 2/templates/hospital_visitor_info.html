@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {%block head%}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/table.css')}}"
+/>
+<script src="{{ url_for('static', filename='js/search_visitor.js')}}"></script>
+<script src="{{ url_for('static', filename='js/changeStatus.js')}}"></script>
+{% endblock %} {% block content %} {% include 'navbar.html' %}
+<main class="content">
+<h1>Visitor Information</h1>
+<div id="">
+  <form
+    id="changeStatusForm"
+    method="post"
+    action="/change_corona_status"
+    class="form-container"
+  >
+    <h1>Login</h1>
+    <label for="visitorId"><b>Visitor Id</b></label>
+    <input type="text" id="visitorId" name="visitorId" required />
+    <label for="coronaStatus"><b>Corona Status</b></label>
+    <select id="coronaStatus" name="coronaStatus">
+      <option value="1">Positive</option>
+      <option value="0">Negative</option>
+    </select>
+
+    <button type="submit" class="btn">Update</button>
+  </form>
+</div>
+<input
+  type="text"
+  id="search-input"
+  onkeyup="search('search-input','visitors-table')"
+  placeholder="Search Visitors"
+/>
+
+<ul class="responsive-table">
+  <li class="table-header">
+    <div class="col col-1">Visitor Id</div>
+    <div class="col col-2">Visitor Name</div>
+    <div class="col col-3">Address</div>
+    <div class="col col-4">City</div>
+    <div class="col col-5">Phone Number</div>
+    <div class="col col-6">Email Address</div>
+    <div class="col col-7">Covid Status</div>
+  </li>
+  <div id="visitors-table">
+    {% for visitor in visitors %}
+    <li class="table-row">
+      <div class="col col-1" data-label="Job Id">{{ visitor[0] }}</div>
+      <div class="col col-2" data-label="Customer Name">{{ visitor[1] }}</div>
+      <div class="col col-3" data-label="Amount">{{ visitor[3] }}</div>
+      <div class="col col-4" data-label="Payment Status">{{ visitor[4] }}</div>
+      <div class="col col-5" data-label="Payment Status">{{ visitor[5] }}</div>
+      <div class="col col-6" data-label="Payment Status">{{ visitor[6] }}</div>
+      <div class="col col-7" data-label="Payment Status">
+        {% if visitor[7] == 1 %} Positive {% else %} Negative {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </div>
+</ul>
+{% endblock %}
+</main>

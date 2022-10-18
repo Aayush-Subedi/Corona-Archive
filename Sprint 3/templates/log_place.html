@@ -1,0 +1,48 @@
+{% extends "baselayout.html" %} {% block content %}
+<div class="container" id="container">
+
+  <!-- Place login form -->
+  <div class="form-container sign-in-container">
+    <form method="POST" action="#" class="form" id="login">
+      <h1 class="form__title">Place Login</h1>
+      <div class="form__input-group">
+        <!-- Username Field -->
+        <label for="email">Email: </label>
+        <input
+          type="text"
+          class="form__input"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Password Field -->
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          class="form__input"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Submit Button -->
+        <button type="submit" class="form__button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Place for additional Information on right side -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Sign in with us and Get QR Code.</h1>
+        <h3 style= "color:rgb(203, 47, 47)">Do not have an account?</h3>
+        <a href={{ url_for('locale_registration') }}><h4>Register Here</h4></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content%}

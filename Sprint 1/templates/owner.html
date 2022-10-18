@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% block head %}
+<!-- For overiding template if need be -->
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/pages.css')}}" />
+<!-- Specific format for linking CSS -->
+<title>Owner</title>
+
+{% endblock %} {% block body %}
+<nav id="navbar">
+  <a class="navbar-brand" href=".{{ url_for('index')}}">CORONA ARCHIVE</a>
+  <div class="navbar-links">
+    <a class="navbar-link" href="{{ url_for('index')}}">HOME</a>
+    <a class="navbar-link" href="{{ url_for('citizen')}}"
+      >Citizen Registeration</a
+    >
+    <!-- Agent has access to info about Citizens(In progress) -->
+    <a class="navbar-link" href="{{ url_for('owner')}}">Owner Registeration</a>
+    <!-- Agent has access to info about Owners(In progress) -->
+    <a class="navbar-link" href="{{ url_for('agent')}}">Agent Login</a>
+    <a class="navbar-link" href="{{ url_for('hospital')}}">Hospital Login</a>
+  </div>
+</nav>
+<div class="text">
+  <h1>Place Owner's Registeration</h1>
+
+  <h1>Register here to obtain your QR code right away!</h1>
+  <div class="register_form">
+    <br /><br />
+    <form style="margin: auto; padding: 10px" action="/owner" method="POST">
+      <!-- Will get owners info that needs to be registered in DB -->
+      <div class="input_field">
+        <label>Place Name:</label>
+        <input type="text" placeholder="Name" name="name" id="name" required />
+      </div>
+      <br /><br />
+      <div class="input_field">
+        <label>Address:</label>
+        <input
+          type="text"
+          placeholder="Address"
+          name="address"
+          id="address"
+          required
+        />
+      </div>
+      <br /><br />
+      <h1 class="require">
+        Please Fill in either your Contact-Number/Email or both!
+      </h1>
+      <div class="input_field">
+        <label>Contact-Number:</label>
+        <input
+          type="text"
+          placeholder="Contact-Number"
+          name="phone"
+          id="phone"
+          required
+        />
+      </div>
+
+      <br /><br />
+      <div class="input_field">
+        <label>Email-Address:</label>
+        <input
+          type="email"
+          placeholder="Email-Address"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+      <br /><br />
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // A function to give owner option for providing a Phone/Email or both
+          const inputs = Array.from(
+            document.querySelectorAll("input[name=phone], input[name=email]")
+          );
+
+          const inputListener = (e) => {
+            inputs
+              .filter((i) => i !== e.target)
+              .forEach((i) => (i.required = !e.target.value.length));
+          };
+
+          inputs.forEach((i) => i.addEventListener("input", inputListener));
+        });
+      </script>
+
+      <button class="register_button" name="Register">Register</button>
+    </form>
+    <br /><br />
+  </div>
+</div>
+{% endblock %}

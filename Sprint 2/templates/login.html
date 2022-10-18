@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/form.css')}}"
+/>
+{% endblock %} {% block content %} {% include 'navbar.html' %}
+<!-- <main class="content"> -->
+
+<div id="login-left" style="width: 50%; float: left">
+  <section id="entry"></section>
+</div>
+<div id="right-body" style="width: 50%; float: right">
+  <section id="about">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flashNotification danger">{{ messages[0] }}</div>
+    {% endif %} {% endwith %} {% include 'login_form.html' %}
+  </section>
+</div>
+{% endblock %}

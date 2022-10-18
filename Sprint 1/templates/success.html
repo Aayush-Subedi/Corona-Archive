@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block head %}
+<!-- For overiding template if need be -->
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}" />
+<link rel="stylesheet" href="{{url_for('static',filename='css/pages.css')}}" />
+<!-- Specific format for linking CSS -->
+<title>Citizen Registeration</title>
+
+{% endblock %} {% block body %}
+<nav id="navbar">
+  <a class="navbar-brand" href=".{{ url_for('index')}}">CORONA ARCHIVE</a>
+  <div class="navbar-links">
+    <a class="navbar-link" href="{{ url_for('index')}}">HOME</a>
+    <a class="navbar-link" href="{{ url_for('citizen')}}"
+      >Citizen Registeration</a
+    >
+    <!-- Agent has access to info about Citizens(In progress) -->
+    <a class="navbar-link" href="{{ url_for('owner')}}">Owner Registeration</a>
+    <!-- Agent has access to info about Owners(In progress) -->
+    <a class="navbar-link" href="{{ url_for('agent')}}">Agent Login</a>
+    <a class="navbar-link" href="{{ url_for('hospital')}}">Hospital Login</a>
+  </div>
+</nav>
+SUCCESSFULLY LOGGED IN {% endblock %}

@@ -1,0 +1,9 @@
+# don't include envirement
+*env/
+virt/
+__pycache__/
+*.pyc
+.git/
+*.pyc
+.DS_Store
+

@@ -1,0 +1,225 @@
+{% extends "visitor_dashboard_baselayout.html" %} {% block head_js %}
+<script
+  type="text/javascript"
+  src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"
+></script>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"
+></script>
+{% endblock head_js %} {% block content %}
+<p id="userSessionId" style="display: none">{{session.get('userId')}}</p>
+<!--heading-->
+{% if remaining_place %}
+
+<div>
+  <h2 style="text-align: center; margin: 40px">
+    You have been in {{place_name}} for
+  </h2>
+</div>
+<div
+  style="
+    align-items: center;
+    width: 28%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border: 3px solid #e7370f;
+  "
+>
+  <div style="margin: 20px; text-align: center">
+    <label id="hours">00</label>
+    <label id="colon">:</label>
+    <label id="minutes">00</label>
+    <label id="colon">:</label>
+    <label id="seconds">00</label>
+  </div>
+</div>
+<button
+  class="buttonLogout"
+  id="exitButton"
+  style="
+    width: 28%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  "
+>
+  Exit
+</button>
+
+<script type="text/javascript">
+  // Get Time from server date
+  let remaining = "{{remaining_place}}";
+  remaining = JSON.parse(remaining);
+  console.log(remaining);
+
+  entry_date = new Date(remaining[3] * 1000);
+  console.log(entry_date);
+  let totalSecondsElapsed = Math.floor((Date.now() - entry_date) / 1000);
+
+  var minutesLabel = document.getElementById("minutes");
+  var secondsLabel = document.getElementById("seconds");
+  var hoursLabel = document.getElementById("hours");
+  var totalSeconds = totalSecondsElapsed;
+
+  // Convert to List
+
+  setInterval(setTime, 1000);
+
+  function setTime() {
+    ++totalSeconds;
+    var h = Math.floor(totalSeconds / 3600);
+    var m = Math.floor((totalSeconds % 3600) / 60);
+    var s = Math.floor((totalSeconds % 3600) % 60);
+
+    hoursLabel.innerHTML = pad(h);
+    minutesLabel.innerHTML = pad(m);
+    secondsLabel.innerHTML = pad(s);
+
+    // secondsLabel.innerHTML = pad(totalSeconds % 60);
+    // minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+  }
+
+  function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+  }
+
+  // Exit
+  let exitButton = document.getElementById("exitButton");
+
+  // Onclick
+  exitButton.addEventListener("click", function () {
+    console.log("hello");
+    let id = remaining[0];
+
+    let data = {
+      id,
+      exitTime: Math.floor(new Date().getTime() / 1000),
+    };
+
+    let url = "{{url_for('visitor_exit_place')}}";
+
+    let request = new XMLHttpRequest();
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify(data));
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let response = JSON.parse(this.responseText);
+        if (response.status == "success") {
+          // Reload this page
+          window.location.reload();
+        } else {
+          alert(response.message);
+        }
+      }
+    };
+  });
+</script>
+
+{% elif has_corona %}
+<div class="container">
+  <h3 style="color: rgb(233, 27, 27); text-align: center">
+    Hey You are Tested Positive for Corona Virus. Please stay in quarentine.
+  </h3>
+  <img
+    src="http://riyaskreatives.com/wp-content/uploads/2020/08/covid-19-corona.jpg"
+  />
+</div>
+{% else %}
+
+<div>
+  <h2 style="text-align: center">
+    Please scan the QR code of place you want to visit.
+  </h2>
+</div>
+
+<!-- camera preview -->
+<video
+  id="preview"
+  style="
+    margin-bottom: 10px;
+    width: 28%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #0a6ccb;
+  "
+></video>
+{% endif %} {% if not remaining_place %}
+<script type="text/javascript">
+  let scanner = new Instascan.Scanner({
+    video: document.getElementById("preview"),
+  });
+  scanner.addListener("scan", function (content) {
+    let userId = document.getElementById("userSessionId").innerHTML;
+    if (isNaN(content)) {
+      alert("Please scan a valid QR code");
+      return;
+    }
+    let place_id;
+    try {
+      place_id = parseInt(content);
+    } catch (e) {
+      alert("Second");
+      return;
+    }
+
+    // Check if the content is not  integer
+    if (typeof place_id == "number") {
+      // Post place_id to the api
+      let url = "{{url_for('visitor_scan_qrcode')}}";
+
+      let data = {
+        placeId: place_id,
+        userId: parseInt(userId),
+        entryTime: Math.floor(new Date().getTime() / 1000),
+      };
+
+      let request = new XMLHttpRequest();
+      request.open("POST", url, true);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.send(JSON.stringify(data));
+      request.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let response = JSON.parse(this.responseText);
+          if (response.status == "success") {
+            // Reload this page
+            window.location.reload();
+          } else {
+            alert(response.message);
+          }
+        }
+      };
+    }
+
+    // document.getElementById("text").value = content
+    // once the qR code is scanced it is redirected to visitor dashboard for timer to start
+    // window.location.replace("http://127.0.0.1:5000/timer");
+  });
+  Instascan.Camera.getCameras()
+    .then(function (cameras) {
+      if (cameras.length > 0) {
+        scanner.start(cameras[0]);
+      } else {
+        console.error("No cameras found.");
+      }
+    })
+    .catch(function (e) {
+      console.error(e);
+    });
+</script>
+{% endif %} {% endblock content %}

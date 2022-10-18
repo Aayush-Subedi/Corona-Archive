@@ -1,0 +1,46 @@
+{% extends "baselayout.html" %} {% block content %}
+<div class="container" id="container">
+  <!-- Agent Login form -->
+  <div class="form-container sign-in-container">
+    <form method="POST" action="#" class="form" id="login">
+      <h1 class="form__title">Agent Login</h1>
+      <div class="form__input-group">
+        <!-- Username Field -->
+        <label for="username">Username: </label>
+        <input
+          type="text"
+          class="form__input"
+          name="username"
+          id="username"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Password Field -->
+        <label for="pass">Password: </label>
+        <input
+          type="password"
+          class="form__input"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+      <div class="form__input-group">
+        <!-- Submit Button -->
+        <button type="submit" class="form__button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Place for additional Information right side -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Sign in with the credential provided.</h1>
+        <p>In case of login failure, please contact the IT team for support.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content%}

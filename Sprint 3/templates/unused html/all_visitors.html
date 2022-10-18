@@ -1,0 +1,51 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Dashboard</title>
+</head>
+
+<body>
+    <h1>Welcome as Agent</h1>
+
+    <a href="{{ url_for('logout') }}">
+        <h1>Log out</h1>
+    </a>
+
+
+    <div>
+        {% if value.visitors %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>phoneNumber</th>
+                    <th>Email</th>
+                    <th>Device_ID</th>
+                    <th>Infected</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visitor in value.visitors %}
+                <tr>
+                    <td>{{visitor.id}}</td>
+                    <td>{{visitor.name}}</td>
+                    <td>{{visitor.address}}</td>
+                    <td>{{visitor.city}}</td>
+                    <td>{{visitor.phoneNumber}}</td>
+                    <td>{{visitor.email}}</td>
+                    <td>{{visitor.device_ID}}</td>
+                    <td>{{visitor.infected}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>

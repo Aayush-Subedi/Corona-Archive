@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block head %}
+<!-- For overiding template if need be -->
+<link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+<!-- Specific format for linking CSS -->
+<link rel="stylesheet" href="{{url_for('static',filename='css/navbar.css')}}" />
+<title>Home</title>
+
+{% endblock %} {% block body %}
+
+<nav id="navbar">
+  <a class="navbar-brand" href=".{{ url_for('index')}}">CORONA ARCHIVE</a>
+  <div class="navbar-links">
+    <a class="navbar-link" href="{{ url_for('index')}}">HOME</a>
+    <a class="navbar-link" href="{{ url_for('citizen')}}"
+      >Citizen Registeration</a
+    >
+    <!-- Agent has access to info about Citizens(In progress) -->
+    <a class="navbar-link" href="{{ url_for('owner')}}">Owner Registeration</a>
+    <!-- Agent has access to info about Owners(In progress) -->
+    <a class="navbar-link" href="{{ url_for('agent')}}">Agent Login</a>
+    <a class="navbar-link" href="{{ url_for('hospital')}}">Hospital Login</a>
+  </div>
+</nav>
+
+<section id="entry">
+  <h1 class="entry-text">CORONA ARCHIVE</h1>
+  <div class="entry-description">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium
+    excepturi praesentium ab nulla sapiente omnis sit voluptas quaerat explicabo
+    quam nam, numquam nostrum nemo laboriosam saepe rerum reiciendis magni esse.
+  </div>
+  <button class="red-outlined-btn">SCAN QR</button>
+</section>
+
+<section id="about">
+  <h6 class="section-subtitle">About</h6>
+  <h1 class="section-header">Who Are We ?</h1>
+  <p class="about-description">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, at totam
+    nisi neque explicabo dignissimos adipisci accusamus molestias earum
+    laboriosam mollitia nemo ipsam ad voluptatibus. Sapiente veniam recusandae
+    aspernatur earum?
+  </p>
+</section>
+
+{% endblock %}
